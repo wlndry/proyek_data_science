@@ -61,3 +61,33 @@ Prototipe visualisasi dan prediksi telah dibuat dalam bentuk **Streamlit app** y
 
 ```bash
 streamlit run dashboard.py
+
+##  Conclusion
+
+Model **Logistic Regression** berhasil memprediksi attrition karyawan dengan performa yang memadai berdasarkan fitur-fitur yang tersedia dalam data. Melalui analisis eksploratif, ditemukan bahwa beberapa faktor utama yang secara signifikan berkontribusi terhadap tingginya tingkat attrition antara lain:
+
+-  **Pendapatan bulanan yang rendah**  
+-  **Usia yang lebih muda**  
+-  **Frekuensi perjalanan dinas yang tinggi**
+
+Temuan ini memberikan wawasan penting bagi tim Human Resources (HR) untuk menyusun strategi retensi yang lebih terarah dan berbasis data.
+
+---
+
+##  Rekomendasi Action Items
+
+Berikut beberapa langkah strategis yang dapat diambil perusahaan berdasarkan hasil analisis:
+
+1. **Kurangi beban kerja atau frekuensi perjalanan dinas**  
+   Evaluasi kembali kebijakan business travel, khususnya bagi karyawan yang menunjukkan beban mobilitas tinggi.
+
+2. **Tinjau ulang skema kompensasi**  
+   Tingkatkan daya saing gaji, terutama bagi karyawan di kelompok usia muda dengan pendapatan di bawah rata-rata.
+
+3. **Fokuskan program retensi untuk karyawan muda**  
+   Implementasikan program pengembangan karier, coaching, mentoring, dan jalur promosi yang jelas untuk meningkatkan loyalitas karyawan muda.
+
+---
+
+Dengan mengimplementasikan strategi-strategi ini, perusahaan diharapkan dapat menurunkan angka attrition secara signifikan dan menciptakan lingkungan kerja yang lebih stabil dan produktif.
+
