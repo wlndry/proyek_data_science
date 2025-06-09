@@ -1,147 +1,138 @@
-# Proyek Pertama: Menyelesaikan Permasalahan Departemen Human Resources
+# Business Understanding
 
-## Business Understanding
+## Latar Belakang Bisnis
 
-Jaya Jaya Maju adalah perusahaan multinasional yang berdiri sejak tahun 2000 dengan lebih dari 1000 karyawan. Saat ini, perusahaan menghadapi masalah tingginya tingkat attrition (rasio karyawan keluar) yang telah melebihi 10%. 
+Jaya Jaya Maju adalah perusahaan multinasional yang telah berdiri sejak tahun 2000 dan memiliki lebih dari 1000 karyawan yang tersebar di seluruh wilayah Indonesia. Walaupun telah berkembang menjadi perusahaan besar, manajemen masih menghadapi tantangan dalam mengelola sumber daya manusia secara efektif. Salah satu tantangan utama adalah tingginya **attrition rate** (rasio jumlah karyawan yang keluar terhadap total karyawan aktif), yang telah mencapai lebih dari 10%. Tingginya attrition rate ini menimbulkan berbagai dampak negatif, seperti:
 
-Tingginya attrition ini berdampak pada:
-- Biaya rekrutmen yang meningkat.
-- Penurunan produktivitas.
-- Terganggunya stabilitas tim dan kualitas layanan.
+- Meningkatnya biaya rekrutmen dan pelatihan.
+- Menurunnya produktivitas tim.
+- Terganggunya stabilitas operasional perusahaan.
+- Penurunan moral dan motivasi karyawan yang tersisa.
 
-Departemen HR meminta bantuan untuk:
-- Mengidentifikasi faktor-faktor yang memengaruhi attrition.
-- Membangun dashboard pemantauan attrition dan faktor terkait.
+Manajer HR menyadari pentingnya memahami penyebab attrition ini secara lebih mendalam agar dapat melakukan tindakan preventif yang tepat.
 
-### Pertanyaan Kunci:
-1. Seberapa tinggi tingkat attrition di perusahaan saat ini?
-2. Siapa saja karyawan yang berisiko tinggi untuk keluar?
-3. Faktor apa yang paling berpengaruh terhadap attrition?
-4. Bagaimana peran lembur, jarak rumah, dan kepuasan kerja terhadap attrition?
-5. Bagaimana visualisasi data dapat membantu pengambilan keputusan oleh tim HR?
+## Permasalahan Bisnis
 
-### Objektif Bisnis:
-- Mengurangi tingkat attrition karyawan.
-- Meningkatkan efektivitas strategi retensi SDM.
+Berikut beberapa permasalahan bisnis yang dihadapi:
 
-### Objektif Teknis:
-- Melakukan eksplorasi data karyawan.
-- Membangun dashboard visualisasi yang informatif dan mudah digunakan.
-- (Opsional) Membangun model prediksi risiko attrition.
+1. **Mengapa attrition rate karyawan sangat tinggi?**  
+   Perusahaan belum memiliki pemahaman menyeluruh tentang faktor-faktor yang memengaruhi keputusan karyawan untuk keluar.
 
----
+2. **Siapa saja karyawan yang berisiko tinggi mengalami attrition?**  
+   HR kesulitan mengidentifikasi secara dini kelompok karyawan yang rawan keluar agar dapat dilakukan intervensi lebih awal.
 
-## Data Understanding
+3. **Bagaimana cara menyampaikan informasi attrition secara jelas dan real-time?**  
+   Tidak tersedia dashboard atau sistem visualisasi yang komprehensif untuk mendukung pengambilan keputusan oleh tim HR.
 
-Dataset disediakan oleh tim HR Jaya Jaya Maju dan mencakup:
-- **Demografi**: Age, Gender, MaritalStatus, Education, EducationField.
-- **Pekerjaan**: Department, JobRole, JobLevel, MonthlyIncome, OverTime, YearsAtCompany.
-- **Target**: Attrition (0 = No, 1 = Yes).
+## Cakupan Proyek
 
-### Atribut Utama:
-- `Attrition`: Target variabel
-- `OverTime`: Lembur (Yes/No)
-- `JobSatisfaction`, `EnvironmentSatisfaction`, `RelationshipSatisfaction`: Skala 1–4
-- `YearsAtCompany`, `DistanceFromHome`, `NumCompaniesWorked`, dll.
+Untuk menjawab permasalahan tersebut, proyek ini akan mencakup hal-hal berikut:
+
+- **Eksplorasi dan analisis data karyawan**  
+  Memahami pola dan karakteristik dari data karyawan untuk menemukan faktor yang memengaruhi attrition.
+
+- **Pembangunan model machine learning prediktif**  
+  Menggunakan algoritma seperti Random Forest atau XGBoost untuk memprediksi potensi attrition berdasarkan atribut-atribut yang tersedia.
+
+- **Visualisasi data dan pembuatan dashboard interaktif**  
+  Menyediakan dashboard berbasis Streamlit yang memungkinkan HR melihat statistik, insight penting, serta memprediksi kemungkinan attrition secara interaktif.
+
+- **Rekomendasi strategis berbasis data**  
+  Memberikan insight dan rekomendasi kebijakan untuk menekan angka attrition dan meningkatkan retensi karyawan.
+
+  ## Data Understanding
+
+Dataset yang digunakan merupakan data fiktif dari perusahaan Jaya Jaya Maju, yang berisi informasi demografis dan pekerjaan karyawan. Dataset ini mencakup berbagai variabel yang dapat memengaruhi attrition karyawan, di antaranya:
+
+- **Demografis:** Age, Gender, Education, MaritalStatus.
+- **Pekerjaan:** Department, JobRole, JobLevel, MonthlyIncome, OverTime, YearsAtCompany, DistanceFromHome.
+- **Kepuasan & Keterlibatan:** JobSatisfaction, EnvironmentSatisfaction, RelationshipSatisfaction, JobInvolvement.
+- **Pelatihan & Kinerja:** TrainingTimesLastYear, PerformanceRating, YearsSinceLastPromotion.
+
+### Temuan Awal (EDA)
+
+- Karyawan dengan **OverTime = Yes** memiliki tingkat attrition jauh lebih tinggi.
+- Attrition lebih banyak terjadi pada **karyawan muda (<30 tahun)**.
+- Faktor-faktor seperti **JobSatisfaction rendah**, **DistanceFromHome jauh**, dan **YearsAtCompany sedikit** berkorelasi positif terhadap kemungkinan attrition.
+- Variabel numerik dengan korelasi kuat terhadap attrition antara lain: `OverTime`, `MonthlyIncome`, dan `YearsWithCurrManager`.
 
 ---
 
 ## Data Preparation
 
 Langkah-langkah yang dilakukan:
-- Menghapus duplikasi dan data kosong (NaN).
-- Encoding data kategorikal (Label/One-Hot Encoding).
-- Standarisasi/normalisasi data numerik (jika dibutuhkan).
-- Membuat kolom baru jika relevan (feature engineering).
-- (Opsional) Split data 80:20 untuk modeling prediktif.
+
+1. **Pembersihan Data**
+   - Tidak ditemukan nilai null atau duplikat.
+   - Outlier dicek dan ditangani jika diperlukan.
+
+2. **Encoding Kategorikal**
+   - One-Hot Encoding untuk kolom seperti `BusinessTravel`, `Department`, `EducationField`, dan `JobRole`.
+
+3. **Feature Engineering**
+   - Membuat variabel tambahan jika dibutuhkan seperti `TenureGroup` atau `IncomePerYear`.
+
+4. **Splitting Data**
+   - Data dibagi menjadi train dan test set dengan rasio 80:20 menggunakan stratifikasi pada target (`Attrition`).
 
 ---
 
-## Exploratory Data Analysis (EDA)
+## Modeling
 
-### Tujuan:
-- Mengidentifikasi pola umum karyawan yang keluar.
-- Menemukan fitur penting untuk dashboard dan insight bisnis.
+Tiga algoritma digunakan untuk membandingkan performa model:
 
-### Temuan Awal (Contoh):
-- Karyawan muda (usia < 30) lebih cenderung keluar.
-- Karyawan yang lembur memiliki attrition rate lebih tinggi.
-- Kepuasan kerja rendah dan jarak rumah jauh juga berkorelasi dengan attrition.
+1. **Logistic Regression**
+2. **Random Forest Classifier**
+3. **XGBoost Classifier**
 
-Visualisasi yang digunakan:
-- Bar chart untuk distribusi attrition berdasarkan fitur.
-- Heatmap korelasi antar fitur numerik.
-- Pie chart proporsi attrition.
-
----
-
-## Modeling (Opsional)
-
-Jika ingin menambahkan prediksi risiko attrition:
-
-### Algoritma yang Dicoba:
-- Logistic Regression
-- Random Forest
-- XGBoost
-
-### Evaluasi:
-- Akurasi, Precision, Recall, F1-Score, Confusion Matrix
-- Cross-validation untuk validasi model
-
-### Hasil:
-- Random Forest memberikan akurasi terbaik (~87%).
-- Fitur paling penting: `OverTime`, `JobSatisfaction`, `DistanceFromHome`.
-
----
-
-## Dashboard Development
-
-### Tools:
-- **Streamlit** untuk dashboard interaktif.
-- **Pandas, Matplotlib, Seaborn** untuk manipulasi dan visualisasi data.
-
-### Fitur Utama Dashboard:
-1. **Ringkasan Attrition**: Total karyawan, jumlah dan persentase attrition.
-2. **Filter Interaktif**: Filter berdasarkan usia, jabatan, departemen, dan lembur.
-3. **Visualisasi Dinamis**:
-   - Distribusi attrition berdasarkan departemen, usia, job level.
-   - Korelasi antara attrition dengan Job Satisfaction, OverTime, DistanceFromHome.
-4. **Insight Otomatis**: Highlight fitur yang paling memengaruhi attrition.
-5. **(Opsional)**: Halaman prediksi risiko berdasarkan input karyawan.
+### Hasil Model
+- **Random Forest** memberikan performa terbaik dengan akurasi ~87%.
+- Fitur paling penting:
+  - `OverTime`
+  - `JobSatisfaction`
+  - `DistanceFromHome`
+  - `YearsAtCompany`
 
 ---
 
 ## Evaluation
 
-- Evaluasi keberhasilan dashboard dilihat dari:
-  - Keterbacaan dan interaktivitas dashboard.
-  - Kemampuan memberikan insight yang jelas bagi manajer HR.
-  - (Opsional) Kinerja model prediktif jika digunakan.
+Model dievaluasi menggunakan beberapa metrik:
+
+- **Accuracy**
+- **Precision**
+- **Recall**
+- **F1-Score**
+- **Confusion Matrix**
+
+### Validasi
+- Menggunakan **k-fold cross-validation** untuk mengevaluasi generalisasi model.
+- Hasil konsisten antara train dan test menunjukkan tidak ada overfitting.
 
 ---
 
 ## Deployment
 
-- Dashboard di-deploy secara lokal menggunakan Streamlit.
-- Akses lokal: [http://localhost:8501](http://localhost:8501)
-- Struktur folder:
+Untuk memudahkan tim HR menggunakan hasil analisis ini, dibuat sebuah **dashboard interaktif** menggunakan **Streamlit**.
 
+### Fitur Dashboard:
+- **Prediksi attrition karyawan baru** berdasarkan input atribut.
+- **Statistik attrition** berdasarkan kategori (umur, role, overtime, dll).
+- **Segmentasi** karyawan berdasarkan risiko keluar.
 
----
-
-## Conclusion
-
-- Attrition di Jaya Jaya Maju dipengaruhi oleh beberapa faktor seperti lembur, kepuasan kerja, dan jarak rumah.
-- Dashboard yang dibangun mampu membantu HR dalam:
-- Memantau attrition secara real time.
-- Mengambil keputusan berbasis data untuk intervensi dini.
-- (Opsional) Model prediksi dapat membantu HR mengenali karyawan berisiko tinggi.
+📍 Link lokal dashboard: `http://localhost:8501`
 
 ---
 
-## Rekomendasi Action Items
+## Kesimpulan dan Rekomendasi
 
-1. Lakukan survei rutin untuk mengukur Job Satisfaction dan Work-Life Balance.
-2. Evaluasi kembali beban lembur karyawan di berbagai divisi.
-3. Integrasikan dashboard ke sistem HRIS internal untuk pemantauan berkelanjutan.
-4. Lakukan program retensi untuk kelompok usia dan jabatan dengan risiko attrition tinggi.
+### Kesimpulan:
+- Model berhasil memprediksi karyawan yang berisiko keluar dengan akurasi tinggi.
+- Faktor-faktor utama penyebab attrition telah teridentifikasi dengan baik.
+
+### Rekomendasi:
+1. **Kurangi beban lembur berlebihan**, karena sangat terkait dengan attrition.
+2. **Lakukan survei berkala** untuk mengukur JobSatisfaction dan mengambil langkah cepat bila rendah.
+3. **Integrasikan model prediksi** ke sistem HRIS untuk membantu identifikasi dini.
+4. **Lakukan pelatihan manajemen** untuk menangani karyawan berisiko tinggi keluar.
+
