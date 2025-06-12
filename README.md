@@ -67,19 +67,33 @@ streamlit run dashboard.py
 
 ## Hasil Analisis Visualisasi
 
-### 1. Rata-rata Pendapatan Bulanan Berdasarkan Status Attrition
+1. **Rata-rata Pendapatan Bulanan Berdasarkan Status Attrition**  
+   Visualisasi menunjukkan bahwa karyawan yang tidak mengalami attrition (Attrition = 0) memiliki rata-rata pendapatan bulanan yang lebih tinggi dibandingkan dengan mereka yang keluar dari perusahaan (Attrition = 1). Perbedaan yang cukup mencolok ini menunjukkan bahwa kompensasi merupakan faktor penting yang memengaruhi keputusan karyawan untuk tetap tinggal atau meninggalkan perusahaan.
 
-Visualisasi menunjukkan bahwa rata-rata pendapatan bulanan karyawan yang **tidak mengalami attrition** (Attrition = 0) lebih tinggi dibandingkan dengan mereka yang mengalami attrition. Ini menunjukkan bahwa karyawan dengan gaji lebih rendah cenderung lebih berisiko untuk keluar dari perusahaan.
+2. **Distribusi Umur Berdasarkan Status Attrition**  
+   Boxplot distribusi usia menunjukkan bahwa karyawan yang mengalami attrition cenderung berusia lebih muda (sekitar 25–35 tahun), dengan median usia lebih rendah dibandingkan dengan yang bertahan. Hal ini mengindikasikan bahwa karyawan muda lebih rentan untuk keluar, kemungkinan karena lebih fleksibel dalam mencari peluang kerja lain, atau merasa kurang memiliki keterikatan dengan perusahaan.
 
-### 2. Distribusi Usia Berdasarkan Status Attrition
+3. **Attrition Berdasarkan Status Lembur (OverTime)**  
+   Karyawan yang sering lembur (`OverTime = Yes`) memiliki proporsi attrition yang jauh lebih tinggi dibandingkan yang tidak lembur. Ini menunjukkan bahwa beban kerja berlebih atau jam kerja yang panjang dapat menjadi salah satu penyebab utama karyawan memutuskan untuk keluar. Oleh karena itu, pengelolaan beban kerja menjadi aspek penting dalam strategi retensi karyawan.
 
-Distribusi usia mengindikasikan bahwa karyawan yang mengalami attrition cenderung berada pada kelompok usia yang lebih muda (sekitar usia 25–35 tahun), sedangkan karyawan usia di atas 40 cenderung bertahan lebih lama di perusahaan.
+4. **Attrition Berdasarkan Kepuasan Kerja (Job Satisfaction)**  
+   Meskipun semua level kepuasan kerja menunjukkan adanya attrition, tingkat attrition tertinggi terjadi pada karyawan dengan skor kepuasan kerja yang rendah (skor 1 dan 2). Sebaliknya, karyawan dengan kepuasan kerja tinggi (skor 3 dan 4) memiliki proporsi attrition yang lebih kecil. Ini menegaskan bahwa kepuasan kerja merupakan faktor penting dalam mempertahankan karyawan.
 
-### 3. Frekuensi Perjalanan Dinas dan Hubungannya dengan Attrition
+5. **Rata-rata Tahun Bekerja Berdasarkan Status Attrition**  
+   Dari visualisasi rata-rata tahun bekerja, terlihat bahwa karyawan yang tetap bertahan memiliki masa kerja yang lebih lama dibandingkan mereka yang keluar. Ini menunjukkan bahwa semakin lama seseorang bekerja di perusahaan, semakin besar kemungkinan mereka untuk bertahan, kemungkinan karena loyalitas, jenjang karier yang jelas, atau keterikatan yang sudah terbentuk.
 
-Dari visualisasi frekuensi perjalanan dinas, terlihat bahwa proporsi karyawan yang sering melakukan perjalanan bisnis memiliki tingkat attrition yang lebih tinggi dibandingkan mereka yang jarang atau tidak pernah bepergian. Hal ini dapat mengindikasikan bahwa frekuensi perjalanan kerja dapat menjadi faktor stres atau kelelahan.
+6. **Distribusi Jarak Rumah ke Kantor Berdasarkan Status Attrition**  
+   Meskipun sebagian besar karyawan, baik yang bertahan maupun yang keluar, tinggal dalam jarak dekat ke kantor, proporsi attrition cenderung sedikit lebih tinggi pada mereka yang tinggal lebih jauh. Jarak rumah ke kantor bisa menjadi faktor stres tambahan yang mendorong karyawan untuk keluar, terutama jika tidak ada kebijakan kerja fleksibel.
+
+7. **Attrition Berdasarkan Frekuensi Perjalanan Dinas (Business Travel)**  
+   Karyawan yang sering melakukan perjalanan bisnis memiliki tingkat attrition yang lebih tinggi dibandingkan dengan mereka yang jarang atau tidak pernah melakukan perjalanan dinas. Hal ini bisa disebabkan oleh kelelahan, ketidakseimbangan work-life balance, atau stres dari mobilitas tinggi yang berulang.
+
+8. **Jumlah Karyawan per Departemen dan Status Attrition**  
+   Visualisasi jumlah karyawan dan attrition berdasarkan departemen menunjukkan bahwa departemen *Research & Development* memiliki jumlah kasus attrition tertinggi secara absolut, disusul oleh *Sales*. Sementara itu, departemen *Human Resources* mencatat jumlah attrition yang paling sedikit. Namun, untuk analisis yang lebih akurat, perlu diperhatikan proporsi attrition terhadap total karyawan di tiap departemen untuk mengidentifikasi potensi masalah retensi secara proporsional.
 
 ---
+
+Insight dari visualisasi ini memberikan pemahaman mendalam terkait faktor-faktor yang berkontribusi terhadap keputusan karyawan untuk keluar dari perusahaan. Temuan-temuan ini dapat digunakan sebagai dasar bagi tim HR dalam menyusun strategi pencegahan attrition yang lebih efektif dan terarah.
 
 ## Business Dashboard (Lokal)
 
