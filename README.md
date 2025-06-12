@@ -27,7 +27,9 @@ Jaya Jaya Maju adalah perusahaan dengan lebih dari 1000 karyawan yang menghadapi
 ## Persiapan
 
 ### Sumber Data  
-Dataset fiktif karyawan Jaya Jaya Maju dengan fitur demografis, pekerjaan, dan kepuasan kerja, termasuk kolom target `Attrition`.
+Dataset yang digunakan dalam proyek ini berjudul **Employee Data** dan diperoleh dari repositori GitHub.
+
+🔗 [Employee Data – GitHub Repository](https://github.com/dicodingacademy/dicoding_dataset/tree/main/employee)
 
 ### Setup Environment  
 - **Library:** pandas, numpy, matplotlib, seaborn, sklearn, joblib, os  
