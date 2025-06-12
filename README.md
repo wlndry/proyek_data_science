@@ -83,13 +83,19 @@ Dari visualisasi frekuensi perjalanan dinas, terlihat bahwa proporsi karyawan ya
 
 ## Business Dashboard (Lokal)
 
-Saat ini belum tersedia dashboard interaktif dalam proyek ini. Namun, model dan fitur telah disimpan dan dapat digunakan untuk pengembangan dashboard di masa mendatang yang dapat membantu HR dalam pengambilan keputusan berbasis data.
+Proyek ini dilengkapi dengan prototipe dashboard interaktif berbasis **Streamlit** yang dirancang untuk membantu tim Human Resources (HR) dalam memahami data karyawan serta memprediksi kemungkinan attrition (keluar dari perusahaan). Meskipun belum terintegrasi dengan platform Business Intelligence (BI) seperti Metabase atau Power BI, semua komponen inti telah tersedia untuk pengembangan lebih lanjut.
 
-Prototipe visualisasi dan prediksi telah dibuat dalam bentuk **Streamlit app** yang dapat dijalankan secara lokal dengan perintah berikut:
+Dashboard ini menampilkan beberapa fitur utama:
+
+- **Visualisasi Data Eksploratif (EDA)**: Menyajikan grafik dan insight terkait distribusi usia, pendapatan bulanan, status attrition, dan variabel penting lainnya.
+- **Antarmuka Prediksi Interaktif**: Pengguna dapat memasukkan data baru dan mendapatkan prediksi apakah seorang karyawan berisiko keluar atau tidak.
+
+Untuk menjalankan dashboard ini secara lokal, gunakan perintah berikut:
 
 ```bash
 streamlit run dashboard.py
 ``` 
+Model yang digunakan pada dashboard ini adalah Logistic Regression, dipilih karena kemampuannya dalam memberikan hasil prediksi yang cukup baik. Model ini dilatih menggunakan data historis karyawan, dengan mempertimbangkan fitur-fitur penting seperti usia, pendapatan, jarak ke tempat kerja, dan lainnya. Dalam dashboard, model ini memberikan prediksi probabilistik, yang dapat digunakan untuk menilai tingkat risiko attrition seorang karyawan. 
 
 ##  Conclusion
 
