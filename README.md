@@ -99,13 +99,20 @@ Model yang digunakan pada dashboard ini adalah Logistic Regression, dipilih kare
 
 ##  Conclusion
 
-Model Logistic Regression berhasil memprediksi attrition karyawan dengan performa yang memadai berdasarkan fitur-fitur yang tersedia dalam data. Melalui analisis eksploratif, ditemukan bahwa beberapa faktor utama yang secara signifikan berkontribusi terhadap tingginya tingkat attrition antara lain:
+Model **Logistic Regression** berhasil dikembangkan untuk memprediksi kemungkinan attrition (keluar dari perusahaan) pada karyawan, dengan performa yang memadai berdasarkan fitur-fitur yang tersedia dalam data. Model ini bersifat interpretable dan cocok digunakan oleh tim non-teknis, seperti Human Resources (HR), dalam pengambilan keputusan berbasis data.
 
--  Pendapatan bulanan yang rendah
--  Usia yang lebih muda
--  Frekuensi perjalanan dinas yang tinggi
+Melalui analisis eksploratif dan visualisasi data, ditemukan bahwa beberapa faktor utama yang secara signifikan berkontribusi terhadap tingginya tingkat attrition adalah:
 
-Temuan ini memberikan wawasan penting bagi tim Human Resources (HR) untuk menyusun strategi retensi yang lebih terarah dan berbasis data.
+- **Pendapatan bulanan yang rendah**
+- **Usia yang lebih muda (sekitar 25–35 tahun)**
+- **Frekuensi perjalanan dinas yang tinggi**
+
+Insight ini memberikan dasar bagi perusahaan untuk menyusun **strategi retensi yang lebih tepat sasaran**, seperti peninjauan kompensasi, pengembangan karier untuk karyawan muda, dan pengelolaan beban kerja bagi karyawan yang sering melakukan perjalanan dinas.
+
+Lebih lanjut, model yang dibangun tidak hanya mampu memprediksi status attrition, tetapi juga memberikan **skor probabilitas** yang dapat digunakan untuk **mengidentifikasi karyawan-karyawan spesifik yang memiliki risiko tinggi keluar dari perusahaan**. Dengan menetapkan ambang batas tertentu (misalnya threshold = 0.5), perusahaan dapat melakukan segmentasi karyawan berdasarkan risiko dan mengambil langkah proaktif untuk mempertahankan talenta yang berharga.
+
+Dengan pendekatan ini, HR tidak hanya bereaksi terhadap attrition yang sudah terjadi, tetapi juga dapat **melakukan pencegahan secara lebih dini dan terukur**.
+
 
 ---
 
