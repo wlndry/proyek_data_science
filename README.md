@@ -32,12 +32,38 @@ Dataset yang digunakan dalam proyek ini berjudul **Employee Data** dan diperoleh
 🔗 [Employee Data – GitHub Repository](https://github.com/dicodingacademy/dicoding_dataset/tree/main/employee)
 
 ### Setup Environment  
-- **Library:** pandas, numpy, matplotlib, seaborn, sklearn, joblib, os  
-- **Preprocessing:** Label Encoding, StandardScaler  
-- **Model:** Logistic Regression (`class_weight='balanced'`)  
-- **Data splitting:** train_test_split dengan stratify target
+Ikuti langkah-langkah berikut untuk menyiapkan dan menjalankan proyek ini di lingkungan lokal Anda:
 
----
+#### 1. Buat Virtual Environment (Opsional tapi Disarankan)
+```bash
+python -m venv venv
+```
+#### 2. Aktifkan Virtual Environment
+Windows:
+```bash
+.\venv\Scripts\activate
+```
+macOS/Linux:
+```bash
+source venv/bin/activate
+```
+#### 3. Install Dependensi
+Instal semua dependensi yang dibutuhkan dari file requirements.txt:
+```bash
+pip install -r requirements.txt
+```
+#### 4. Jalankan Notebook Analisis
+Silakan buka file **`notebook.ipynb`** menggunakan **Jupyter Notebook** atau **ekstensi Jupyter di VSCode**, lalu jalankan semua sel satu per satu untuk melakukan proses eksplorasi dan analisis terhadap data yang tersedia.
+
+#### 5. Jalankan Skrip Prediksi
+Jika ingin melakukan prediksi terhadap data baru, Anda dapat mengedit variabel sample_input yang terdapat di dalam script **`predict.py`** Variabel ini berisi contoh data input yang akan digunakan oleh model saat aplikasi dijalankan.
+```bash
+python predict.py
+```
+#### 6. Jalankan Dashboard Visualisasi
+```bash
+streamlit run dashboard.py
+```
 
 ## Hasil Analisis Visualisasi
 
